@@ -1,0 +1,126 @@
+/*BEGIN alter login div about registered user since it shows-up strange ad messy*/
+/* div#mw-createaccount-another{
+ visibility:hidden;
+ display: none;
+} */
+div#mw-createaccount-cta h3{
+  padding-top: 20px;
+  font-size: 12px;
+}
+div#mw-createaccount-cta a#mw-createaccount-join{
+  margin-top: 10px;
+  font-size: 12px;
+}
+div#mw-createaccount-cta {
+	background: none;
+ /*  visibility:hidden;
+  display: none; */
+}
+
+div#mw-userlogin-help{
+	visibility:hidden; 
+	display:none;
+}
+/*END alter login div about registered user since it shows-up strange ad messy*/
+
+/*BEGIN register new user modifications */
+div.prefsectiontip p {display:none; visibility:hidden;}
+/* div.mw-createacct-benefits-container {display:none; visibility:hidden;} */
+/*END register new user modifications */
+
+/*Table of contents without numbering*/
+.tocnumber { display: none; }
+/*Do not show hide/show link for table of contents*/
+.toctoggle { display:none; }
+/*div.floatingtoc {float:right}*/
+
+/*edit pagecontent textarea  should be 99% width*/
+div#canvas div#body div#mw-content-text form textarea#wpTextbox1{width:99%;}
+div#canvas div#body div#mw-content-text textarea#wpTextbox1{width:99%;}
+
+/*hack for text on subhomepage... TODO ask NM/BB*/
+div#canvas.index div#body div#mw-content-text div#page{margin-top:100px;}
+div#canvas.index div#body div#mw-content-text div#taxonomy{margin-top:175px;}
+
+/*hack for a link outside div#page, but in div#editlink*/
+div#editlink {float:left; padding:20px 0px 0px -10px;}
+div#editlink a {
+  color: #2691cf; }
+/* line 26, _typography.scss */
+div#editlink a:hover {
+  text-decoration: none !important; }
+/* line 31, _typography.scss */
+div#editlink a.visited,
+div#editlink a:visited {
+  color: #867351; }
+
+/*hack for breadcrumb on subhomes*/
+header#mainHeader div#breadcrumb{
+	position: absolute;
+	bottom: 80px;
+	/*margin-left: 7px;*/
+}
+
+/*hack for sidebar top, prevent overlap with infographic... Jira EMT-355*/
+@media (min-width: 720px) {
+	#canvas #body div.aside {
+	    float: right;
+	    margin-left: 24px;
+	    width: 27.586207%;
+	    top:0px;
+	    position: relative;
+	}
+}
+
+/*START hack for footer, TODO: ask Norman to apply to main stylesheet*/
+/* line 1, _footer.scss */
+footer#siteFooter {
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+}
+
+/* line 9, _footer.scss */
+footer#siteFooter ul {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1020px;
+  background: #fff;
+  display: table;
+  text-align: center;
+}
+/* line 18, _footer.scss */
+footer#siteFooter ul li {
+  display: table-cell;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 24, _footer.scss */
+footer#siteFooter ul li img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+@media (min-width: 720px) {
+  /* line 38, _footer.scss */
+  footer#siteFooter ul li img {
+    height: auto;
+    width: auto;
+  }
+}
+@media (min-width: 980px) {
+  /* line 46, _footer.scss */
+  footer#siteFooter ul li img {
+    height: auto;
+    width: auto;
+  }
+}
+/*END hack for footer, TODO: ask Norman to apply to main stylesheet + strepen/slechte logo's, sinds?*/
