@@ -1,0 +1,17 @@
+
+#ignore the search dir since this is a different experimental module, which is installed from github/ever0011
+search
+
+#ignore composer dir
+vendor/
+
+# ignore all files ending with ~
+*~ 
+
+#ignore mac specific
+.DS_Store
+
+#ignore eclipse specific
+.project
+.settings/
+.buildpath
