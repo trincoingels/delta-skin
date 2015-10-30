@@ -7,6 +7,7 @@ if(isset($_GET['stop'])) //for debugging, end querystring with '?stop' or '&stop
 	echo $imgUrl."<br>";
 	echo $bannerUrl."<br>";
 	
+	echo "SECTIONS:";
 	var_dump($sections);
 	echo "PROCESSES:";
 	var_dump($processes);
