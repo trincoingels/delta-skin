@@ -1,0 +1,7 @@
+.settings/
+.project
+vendor/
+.DS_Store
+
+#ignore the search dir since this is a different experimental module, which is installed from github/ever0011
+search
