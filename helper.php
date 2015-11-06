@@ -26,7 +26,10 @@ spl_autoload_register(function($classname){
 	const SECTIONHEADERPROPERTY = "DS section header";		//deltaskin specific
 	const SECTIONSMSGPROPERTY = "DS sections wikimsg";		//deltaskin specific
 	const AUDIENCEMSGPROPERTY = "DS audience wikimsg";		//deltaskin specific
-	const PROCESSESMSGPROPERTY = "DS processes wikimsg";	//deltaskin specific
+	const PROCESSESMSGPROPERTY = "DS sprocesses wikimsg";	//deltaskin specific
+	const CONCEPTSMSGPROPERTY = "DS sconcepts wikimsg";		//deltaskin specific
+	const CASESMSGPROPERTY = "DS scases wikimsg";			//deltaskin specific
+	const FACTSMSGPROPERTY = "DS sfacts wikimsg";			//deltaskin specific
 	const PROFILELOGOPROPERTY = "DS profile logo";			//deltaskin specific //img file, now prepended with imgUrl //TODO
 	const PROFILETXTMSGPROPERTY = "DS profiletxt wikimsg";	//deltaskin specific
 	const MAINHEADERCLASSPROPERTY = "DS mainheaderclass";	//deltaskin specific
@@ -104,6 +107,9 @@ spl_autoload_register(function($classname){
 		$sections = getNavBlocks($config, $pagename, $this->getSkin(), SECTIONSMSGPROPERTY);
 		$audience = getNavBlocks($config, $pagename, $this->getSkin(), AUDIENCEMSGPROPERTY);
 		$processes = getNavBlocks($config, $pagename, $this->getSkin(), PROCESSESMSGPROPERTY);
+		$concepts = getNavBlocks($config, $pagename, $this->getSkin(), CONCEPTSMSGPROPERTY);
+		$cases = getNavBlocks($config, $pagename, $this->getSkin(), CASESMSGPROPERTY);
+		$facts = getNavBlocks($config, $pagename, $this->getSkin(), FACTSMSGPROPERTY);
 	}
 	elseif( $this->data['title'] == SEARCHPAGE )		//TODO multi language?
 	{
@@ -278,6 +284,9 @@ spl_autoload_register(function($classname){
 				"|?".SECTIONSMSGPROPERTY.
 				"|?".AUDIENCEMSGPROPERTY.
 				"|?".PROCESSESMSGPROPERTY.
+				"|?".CONCEPTSMSGPROPERTY.
+				"|?".CASESMSGPROPERTY.
+				"|?".FACTSMSGPROPERTY.
 				"|?".ISSUBHOMEPROPERTY.
 				"|?".SECTIONHEADERPROPERTY.
 				"|?".MAINHEADERCLASSPROPERTY.

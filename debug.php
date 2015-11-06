@@ -10,6 +10,7 @@ if(isset($_GET['stop'])) //for debugging, end querystring with '?stop' or '&stop
 	echo "SECTIONS:";
 	var_dump($sections);
 	echo "PROCESSES:";
+	echo PROCESSESMSGPROPERTY;
 	var_dump($processes);
 	//testing calling the api
 	//all pages with half-height Waterveiligheidsbanner
