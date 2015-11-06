@@ -26,10 +26,10 @@ spl_autoload_register(function($classname){
 	const SECTIONHEADERPROPERTY = "DS section header";		//deltaskin specific
 	const SECTIONSMSGPROPERTY = "DS sections wikimsg";		//deltaskin specific
 	const AUDIENCEMSGPROPERTY = "DS audience wikimsg";		//deltaskin specific
-	const PROCESSESMSGPROPERTY = "DS sprocesses wikimsg";	//deltaskin specific
-	const CONCEPTSMSGPROPERTY = "DS sconcepts wikimsg";		//deltaskin specific
-	const CASESMSGPROPERTY = "DS scases wikimsg";			//deltaskin specific
-	const FACTSMSGPROPERTY = "DS sfacts wikimsg";			//deltaskin specific
+	const PROCESSESMSGPROPERTY = "DS processes wikimsg";	//deltaskin specific
+	const CONCEPTSMSGPROPERTY = "DS concepts wikimsg";		//deltaskin specific
+	const CASESMSGPROPERTY = "DS cases wikimsg";			//deltaskin specific
+	const FACTSMSGPROPERTY = "DS facts wikimsg";			//deltaskin specific
 	const PROFILELOGOPROPERTY = "DS profile logo";			//deltaskin specific //img file, now prepended with imgUrl //TODO
 	const PROFILETXTMSGPROPERTY = "DS profiletxt wikimsg";	//deltaskin specific
 	const MAINHEADERCLASSPROPERTY = "DS mainheaderclass";	//deltaskin specific
