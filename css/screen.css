@@ -3721,7 +3721,7 @@ h3 {
   font-size: 15px;
   background: #F5F1EB;
   color: #B0B2B3;
-  z-index: 10;
+  z-index: 8;
   position: relative;
   *zoom: 1; }
   .navigation__label:before,
@@ -3866,11 +3866,11 @@ h3 {
     height: 25px;
     position: absolute;
     background: url(../img/section-arrow-bottom.png) no-repeat center top;
-    background-size: 100% 50%; }
+    background-size: auto 50%; }
   @media screen and (min-width: 720px) {
     .section-processen:after {
       background: url(../img/section-arrow-right.png) no-repeat left center;
-      background-size: 50% 100%;
+      background-size: 50% auto;
       height: auto;
       width: 21px;
       right: -28px;
@@ -3889,16 +3889,16 @@ h3 {
     height: 25px;
     position: absolute;
     background: url(../img/section-arrow-bottom.png) no-repeat center top;
-    background-size: 50%; }
+    background-size: auto 50%; }
   @media screen and (min-width: 720px) {
     .section-begrippen:after {
       background: url(../img/section-arrow-right.png) no-repeat left center;
-      background-size: 50%;
+      background-size: 50% auto;
       height: auto;
       width: 21px;
       right: -28px;
       top: -10px;
-      bottom: -32px;
+      bottom: 0;
       left: auto; } }
 
 .layout--devider {
@@ -4215,7 +4215,12 @@ textarea {
   background: #eae4d7;
   position: relative;
   left: 0%;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9); }
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+  border-top: 44px solid #3D3D3F; }
+
+.suggestions {
+  opacity: 1 !important;
+  visibility: visible !important; }
 
 .fixed-nav {
   background: #dfdfdf;
