@@ -7,11 +7,11 @@ if(isset($_GET['stop'])) //for debugging, end querystring with '?stop' or '&stop
 	echo $imgUrl."<br>";
 	echo $bannerUrl."<br>";
 	
-	echo "SECTIONS:";
-	var_dump($sections);
-	echo "PROCESSES:";
-	echo PROCESSESMSGPROPERTY;
-	var_dump($processes);
+	//echo "SECTIONS:";
+// 	var_dump($sections);
+	echo "MOREBLOCKS:";
+	echo MOREBLOCKSMSGPROPERTY;
+	var_dump($moreblocks);
 	//testing calling the api
 	//all pages with half-height Waterveiligheidsbanner
 // 	global $wgLocalStylePath, $wgFavicon, $wgAppleTouchIcon;

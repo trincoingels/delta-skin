@@ -1,5 +1,13 @@
 			<div id="body">
-<?php if($processes || $cases || $concepts || $facts):?>			
+<?php 
+/* TODO: linkjes href #
+ * ruimte tussen moreblocks en dat ervoor (moreblocks wiki msg al in hz04 gezet)
+ * //TODO: explode target, label and image -> to remove code duplic
+ * //TODO: img in and imgurl out -> removes code duplic
+ * TODO's hieronder
+ */
+
+	if($processes || $cases || $concepts || $facts):?>			
 				<div class="navigation  mb+">
 
 					<!-- row processen/cases -->
@@ -9,16 +17,14 @@
 						<div class="layout__item  u-1/2-tablet  u-2/3-desktop  section-processen">
 		
 							<div class="navigation__label  navigation__label--first  hide-on-mobile"><span class="p"><?php echo wfMessage( 'deltaskin-theory' )->text();?></span></div>
-<?php if($processes):?>		
+<?php 	if($processes):?>		
 							<div class="box">
 		
-								<h2 class="section-titel  section-title--first"><?php echo wfMessage( 'deltaskin-processes' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-theory' )->text();?>)</span></h2>
+								<h2 class="section-titel  section-title--first"><a href="#"><?php echo wfMessage( 'deltaskin-processes' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-theory' )->text();?>)</span></a></h2>
 		
 								<div class="layout">
 		
 								<?php 
-									//TODO: explode target, label and image -> to remove code duplic
-									//TODO: img in and imgurl out -> removes code duplic
 									$moreProcessesUrl = "";
 									foreach($processes as $process => $subProcessLinks)
 									{
@@ -63,15 +69,15 @@
 								</div>
 		
 							</div>
-<?php endif;?>	
+<?php 	endif;?>	
 						</div
 						><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
 		
 							<div class="navigation__label  hide-on-mobile"><span class="p"><?php echo wfMessage( 'deltaskin-practice' )->text();?></span></div>
-<?php if($cases):?>	
+<?php 	if($cases):?>	
 							<div class="box">
 		
-								<h2 class="section-titel"><?php echo wfMessage( 'deltaskin-cases' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-practice' )->text();?>)</span></h2>
+								<h2 class="section-titel"><a href="#"><?php echo wfMessage( 'deltaskin-cases' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-practice' )->text();?>)</span></a></h2>
 		
 								<div class="scroller">
 		
@@ -100,7 +106,7 @@
 								</div>
 		
 							</div>
-<?php endif;?>
+<?php 	endif;?>
 						</div>
 		
 					</div>
@@ -110,10 +116,10 @@
 					<div class="layout  layout--devider  mobile-pt  tablet-pt0">
 		
 						<div class="layout__item  u-1/2-tablet  u-2/3-desktop  section-begrippen">
-<?php if($concepts):?>		
+<?php 	if($concepts):?>		
 							<div class="box  pt-">
 		
-								<h2 class="section-titel"><?php echo wfMessage( 'deltaskin-concepts' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-theory' )->text();?>)</span></h2>
+								<h2 class="section-titel"><a href="#"><?php echo wfMessage( 'deltaskin-concepts' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-theory' )->text();?>)</span></a></h2>
 		
 								<div class="">
 		
@@ -142,12 +148,12 @@
 								</div>
 		
 							</div>
-<?php endif;?>
+<?php 	endif;?>
 						</div><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
-<?php if($facts):?>		
+<?php 	if($facts):?>		
 							<div class="box">
 		
-								<h2 class="section-titel"><?php echo wfMessage( 'deltaskin-facts' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-practice' )->text();?>)</span></h2>
+								<h2 class="section-titel"><a href="#"><?php echo wfMessage( 'deltaskin-facts' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-practice' )->text();?>)</span></a></h2>
 		
 								<div class="scroller">
 		
@@ -177,146 +183,150 @@
 								</div>
 		
 							</div>
-<?php endif;?>
+<?php 	endif;?>
 						</div>
 		
 					</div>
 		
 				</div>
-<?php /*		
+<?php 
+	endif;	
+	if($moreblocks):?>				
 				<div class="navigation  mb">
 		
 					<div class="box  pb0">
 		
 						<div class="layout">
+		<?php 
+									//TODO: this block of code is the same (except for: u-1/2-tablet u-/1/3-desktop) - remove codedupl
+									//TODO: change variable names, niet meer nodig als code dupl verholpen
+									foreach($moreblocks as $process => $subProcessLinks)
+									{
+										//split in 3 strings: first being the target, the 2nd being the label of the link, 3rd being the block background image
+										$processLink = explode("|", $process, 3);
+										$processLink = array_map("trim", $processLink);	//trim whitespace
+										$blockImgUrl = false;
+										list($processTarget, $processLabel, $processImg) = $processLink;
+										//the images can be either a skin image (found at bannerUrl) or a wiki upload (prefered)
+										if($processImg){
+											$wikiImageUrl = APIAsker::getInstance()->queryImageUrl($processImg);
+											$blockImgUrl = ($wikiImageUrl) ? $wikiImageUrl : $bannerUrl."/".$processImg;
+										}
+									//important: no new lines or spacing must be present between begin and end of this foreach loop... see EMT-365:
+									?><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
 		
-							<div class="layout__item  u-1/2-tablet  u-1/3-desktop">
+											<a href="<?php echo $processTarget;?>">	
+												<div class="box  navigation__item   cover" style="background-image: url(<?php echo $blockImgUrl;?>)">
+												<h3 class="navigation__item--title"><?php echo $processLabel;?></h3>
 		
-								<div class="box  navigation__item  cover" style="background-image: url(img/testbeeld.jpg)">
+											<?php
+												if(is_array($subProcessLinks) && count($subProcessLinks)>0){
+													echo '<ul class="list-bare  navigation__list">';
+													foreach ($subProcessLinks as $key => $value)
+														echo $this->makeListItem( $key, $value, array('link-class'=>'navigation__subitem')) . "\n"; 
+													echo '</ul>';
+												}
+											?>
+												</div>
+											</a>
 		
-									<a href="#"><h3 class="navigation__item--title">verzorgen</h3></a>
-		
-									<ul class="list-bare  navigation__list">
-										<li><a href="#" class="navigation__subitem">Waterstromen</a></li>
-										<li><a href="#" class="navigation__subitem">Zuiveringstechnieken</a></li>
-										<li><a href="#" class="navigation__subitem">Soorten</a></li>
-									</ul>
-		
-								</div>
-		
-							</div
-							><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
-		
-								<div class="box  navigation__item  cover" style="background-image: url(img/testbeeld.jpg)">
-		
-									<a href="#"><h3 class="navigation__item--title">verzorgen</h3></a>
-		
-									<ul class="list-bare  navigation__list">
-										<li><a href="#" class="navigation__subitem">Waterstromen</a></li>
-										<li><a href="#" class="navigation__subitem">Zuiveringstechnieken</a></li>
-										<li><a href="#" class="navigation__subitem">Soorten</a></li>
-									</ul>
-		
-								</div>
-		
-							</div
-							><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
-		
-								<div class="box  navigation__item  cover" style="background-image: url(img/testbeeld.jpg)">
-		
-									<a href="#"><h3 class="navigation__item--title">verzorgen</h3></a>
-		
-									<ul class="list-bare  navigation__list">
-										<li><a href="#" class="navigation__subitem">Waterstromen</a></li>
-										<li><a href="#" class="navigation__subitem">Zuiveringstechnieken</a></li>
-										<li><a href="#" class="navigation__subitem">Soorten</a></li>
-									</ul>
-		
-								</div>
-		
-							</div>
+									</div><?php } //important: no new lines or spacing must be present between begin and end of this foreach loop... see EMT-365?>
 		
 						</div>
 		
 					</div>
 		
 				</div>
-*/
-endif;
-//wme: oldhome starts here
-if($sections):?>	
-				<section class="sections">
-					<ul>
-						<?php 
-							foreach($sections as $name => $content){
-								echo "\n<li>\n";
-								//split in 3 strings: first being the target, the 2nd being the label of the link, 3rd being the nav-block-banner
-								$link = explode("|", $name, 3);
-								$link = array_map("trim", $link);	//trim whitespace
-								list($target, $label, $navblockbanner) = $link;
-								if($navblockbanner){
-									$wikiImageUrl = APIAsker::getInstance()->queryImageUrl($navblockbanner);
-									$blockImgUrl = ($wikiImageUrl) ? $wikiImageUrl : $bannerUrl."/".$navblockbanner;
-									$style = "style=\"background: url(".$blockImgUrl.");\"";
-								}
-								else 
-									$style = "";
-								echo "\n<h3 $style><a href=\"$target\">". ($label ? $label : $target) ."</a></h3>\n<ul>\n";
-								
-								if(is_array($content)){
-									foreach ($content as $key => $value)
-										echo $this->makeListItem( $key, $value) . "\n"; //, array( 'text-wrapper' => array( 'tag' => 'span' ))  ) . "\n";
-								}
-								else{
-									echo $content . "\n";
-								}
-								echo "<li class=\"more\"><a href=\"$link[0]\">" . wfMessage( 'deltaskin-more' )->text() ." ". strtolower( ($label ? $label : $target) ) . "</a></li>\n";
-								echo "</ul>\n</li>\n";
-							}
-						?>
-					</ul>
+<?php	
+	endif;
+	if($sections):
+?>				<!-- Sections section -->
+				<section class="section">
+					<div class="box  pb0">
+						<div class="layout">
+							<?php foreach($sections as $name => $content):?><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
+								<div class="section__item">
+								<?php 
+									//split in 3 strings: first being the target, the 2nd being the label of the link, 3rd being the nav-block-banner
+									$link = explode("|", $name, 3);
+									$link = array_map("trim", $link);	//trim whitespace
+									list($target, $label, $navblockbanner) = $link;
+									if($navblockbanner){
+										$wikiImageUrl = APIAsker::getInstance()->queryImageUrl($navblockbanner);
+										$blockImgUrl = ($wikiImageUrl) ? $wikiImageUrl : $bannerUrl."/".$navblockbanner;
+									}
+									?>
+									<h3 class="section__title" style="background-image: url(<?php echo $blockImgUrl;?>);"><a href="<?php echo $target;?>"><?php echo ($label ? $label : $target);?></a></h3>
+									<ul class="section__list">
+									<?php 
+										
+										
+									//echo "\n<h3 $style><a href=\"$target\">". ($label ? $label : $target) ."</a></h3>\n<ul>\n";
+									
+									if(is_array($content)){
+										foreach ($content as $key => $value)
+											echo $this->makeListItem( $key, $value) . "\n"; //, array( 'text-wrapper' => array( 'tag' => 'span' ))  ) . "\n";
+									}
+									else{
+										echo $content . "\n";
+									}
+									echo "<li class=\"more\"><a href=\"$link[0]\">" . wfMessage( 'deltaskin-more' )->text() ." ". strtolower( ($label ? $label : $target) ) . "</a></li>\n";
+									echo "</ul>\n";
+								?>
+								</div>
+							</div><?php endforeach;?>
+						</div>
+					</div>
 				</section>
-<?php
-	endif; 
-	if($audience):?>
-				<section class="audience">
-					<ul>
-						<?php 
-							foreach($audience as $name => $content){
-								echo "\n<li>\n";
-								//split in 3 strings: first being the target, the 2nd being the label of the link, 3rd being the nav-block-banner
-								$link = explode("|", $name, 3);
-								$link = array_map("trim", $link);	//trim whitespace
-								list($target, $label, $navblockbanner) = $link;
-								if($navblockbanner){
-									$wikiImageUrl = APIAsker::getInstance()->queryImageUrl($navblockbanner);
-									$blockImgUrl = ($wikiImageUrl) ? $wikiImageUrl : $bannerUrl."/".$navblockbanner;
-									$style = "style=\"background: url(".$blockImgUrl.");\""; 
-								}
-								else 
-									$style = "";
-								echo "\n<h3 $style><a href=\"$target\">". ($label ? $label : $target) ."</a></h3>\n<ul>\n";
-								
-								if(is_array($content)){
-									foreach ($content as $key => $value)
-										echo $this->makeListItem( $key, $value) . "\n"; //, array( 'text-wrapper' => array( 'tag' => 'span' ))  ) . "\n";
-								}
-								else{
-									echo $content . "\n";
-								}
-								echo "<li class=\"more\"><a href=\"$link[0]\">" . wfMessage( 'deltaskin-more' )->text() ." ". strtolower( ($label ? $label : $target) ) . "</a></li>\n";
-								echo "</ul>\n</li>\n";
-							}
-						?>
-					</ul>
+<?php 
+	endif;
+	if($audience):
+?>				<!-- Audience section -->
+				<section class="section">
+					<div class="box  pb0">
+						<div class="layout">
+							<?php foreach($audience as $name => $content):?><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
+								<div class="section__item">
+								<?php 
+									//split in 3 strings: first being the target, the 2nd being the label of the link, 3rd being the nav-block-banner
+									$link = explode("|", $name, 3);
+									$link = array_map("trim", $link);	//trim whitespace
+									list($target, $label, $navblockbanner) = $link;
+									if($navblockbanner){
+										$wikiImageUrl = APIAsker::getInstance()->queryImageUrl($navblockbanner);
+										$blockImgUrl = ($wikiImageUrl) ? $wikiImageUrl : $bannerUrl."/".$navblockbanner;
+									}
+									?>
+									<h3 class="section__title" style="background-image: url(<?php echo $blockImgUrl;?>);"><a href="<?php echo $target;?>"><?php echo ($label ? $label : $target);?></a></h3>
+									<ul class="section__list">
+									<?php 
+										
+										
+									//echo "\n<h3 $style><a href=\"$target\">". ($label ? $label : $target) ."</a></h3>\n<ul>\n";
+									
+									if(is_array($content)){
+										foreach ($content as $key => $value)
+											echo $this->makeListItem( $key, $value) . "\n"; //, array( 'text-wrapper' => array( 'tag' => 'span' ))  ) . "\n";
+									}
+									else{
+										echo $content . "\n";
+									}
+									echo "<li class=\"more\"><a href=\"$link[0]\">" . wfMessage( 'deltaskin-more' )->text() ." ". strtolower( ($label ? $label : $target) ) . "</a></li>\n";
+									echo "</ul>\n";
+								?>
+								</div>
+							</div><?php endforeach;?>
+						</div>
+					</div>
 				</section>
-<?php endif;
-if( !$sections && !$audience )		//if no sections and no audience, print page content TODO extend this with new nav msgs
-{
-	$this->html('bodytext');
-	if($this->data['loggedin'] && $_GET["action"] != 'edit')
-		echo "<div id=\"editlink\"><a href=\"?action=edit\">wijzig</a></div>";
-}
+<?php 
+	endif;
+	if( !($sections || $audience || $processes || $cases || $concepts || $facts) )		//if none of the msgs is set, just print the page content
+	{
+		$this->html('bodytext');
+		if($this->data['loggedin'] && $_GET["action"] != 'edit')
+			echo "<div id=\"editlink\"><a href=\"?action=edit\">wijzig</a></div>";
+	}
 ?>
 				
 			</div>

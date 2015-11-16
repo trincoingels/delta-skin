@@ -50,6 +50,7 @@ $messages['nl'] = array(
 		'deltaskin-home-concepts'	=> '* Fill deltaskin-home-concepts sidebar-wise *',
 		'deltaskin-home-cases'	=> '* Fill deltaskin-home-cases sidebar-wise *',
 		'deltaskin-home-facts'	=> '* Fill deltaskin-home-facts sidebar-wise *',
+		'deltaskin-home-moreblocks'	=> '* Fill deltaskin-home-moreblocks sidebar-wise *',
 		'deltaskin-onderwijs-sections'=> '* Fill deltaskin-onderwijs-sections sidebar-wise *',
 		'deltaskin-onderwijs-audience'=> '* Fill deltaskin-onderwijs-audience sidebar-wise *',
 		'deltaskin-onderzoekeninnovatie-sections'=> '* Fill deltaskin-onderzoekeninnovatie-sections sidebar-wise *',
