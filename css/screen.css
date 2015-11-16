@@ -2851,7 +2851,7 @@ img.deltares {
     position: relative; }
     header#mainHeader #idTag {
       left: 32px;
-      top: -6px;
+      top: -46px;
       -webkit-transform: scale(1);
       -ms-transform: scale(1);
       transform: scale(1); }
@@ -4218,10 +4218,6 @@ textarea {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
   border-top: 44px solid #3D3D3F; }
 
-.suggestions {
-  opacity: 1 !important;
-  visibility: visible !important; }
-
 .fixed-nav {
   background: #dfdfdf;
   position: static;
@@ -4869,3 +4865,10 @@ div.aside {
   .section__list li.more a:hover {
     color: #2691CF;
     margin-bottom: 12px; }
+
+.suggestions > li {
+  font-size: 14px;
+  line-height: 21px; }
+  .suggestions > li h4 {
+    font-size: 14px;
+    line-height: 21px; }
