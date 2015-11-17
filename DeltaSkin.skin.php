@@ -116,7 +116,7 @@ class DeltaSkinTemplate extends BaseTemplate {
 
 		if($home)
 		{
-			include 'newhome.php';		//main homepage
+			include 'newhome.php';		//main homepage - previously home.php now deprecated
 		}
 		elseif($search)
 		{
@@ -124,7 +124,7 @@ class DeltaSkinTemplate extends BaseTemplate {
 		}
 		elseif($subhome)
 		{
-				include 'subhome.php';		//include sub homepage
+				include 'newhome.php';		//include sub homepage - previously subhome.php now deprecated
 		}
 		else
 		{

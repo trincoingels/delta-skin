@@ -109,11 +109,26 @@ spl_autoload_register(function($classname){
 		$concepts = getNavBlocks($config, $pagename, $this->getSkin(), CONCEPTSMSGPROPERTY);
 		$cases = getNavBlocks($config, $pagename, $this->getSkin(), CASESMSGPROPERTY);
 		$facts = getNavBlocks($config, $pagename, $this->getSkin(), FACTSMSGPROPERTY);
-		
 		$moreblocks = getNavBlocks($config, $pagename, $this->getSkin(), MOREBLOCKSMSGPROPERTY);
-		
 		$sections = getNavBlocks($config, $pagename, $this->getSkin(), SECTIONSMSGPROPERTY);
 		$audience = getNavBlocks($config, $pagename, $this->getSkin(), AUDIENCEMSGPROPERTY);
+		
+		$navblokkies = array("processes"=>$processes, "concepts"=>$concepts, "cases"=>$cases, "facts"=>$facts, "moreblocks"=>$moreblocks, "sections"=>$sections, "audience"=>$audience);
+		
+		//preprocess them TODO more efficient, variable naming?
+		foreach($navblokkies as $k=>$v){
+			foreach($v as $process => $subProcessLinks)
+			{
+				$processBlock = convertPipedLinkToTriple($process, $bannerUrl);
+				if($processBlock[1]=="more"){	//detect the more-link
+					$blockdata[$k]["more"] = $processBlock[0];	//set url for 'more processes'
+				}
+				else{
+					$processBlock["subs"] = $subProcessLinks;
+					$blockdata[$k][] = $processBlock;
+				}			
+			}
+		}
 	}
 	elseif( $this->data['title'] == SEARCHPAGE )		//TODO multi language?
 	{
@@ -126,9 +141,34 @@ spl_autoload_register(function($classname){
 		$breadCrumbBuilder = new BreadCrumbBuilder();
 		if($subhome)
 		{
+			/**RESOLVE THIS CODE DUPLICATION (COMPARE TO CASE HOMEPAGE)**/
+			$processes = getNavBlocks($config, $pagename, $this->getSkin(), PROCESSESMSGPROPERTY);
+			$concepts = getNavBlocks($config, $pagename, $this->getSkin(), CONCEPTSMSGPROPERTY);
+			$cases = getNavBlocks($config, $pagename, $this->getSkin(), CASESMSGPROPERTY);
+			$facts = getNavBlocks($config, $pagename, $this->getSkin(), FACTSMSGPROPERTY);
+			$moreblocks = getNavBlocks($config, $pagename, $this->getSkin(), MOREBLOCKSMSGPROPERTY);
 			$sections = getNavBlocks($config, $pagename, $this->getSkin(), SECTIONSMSGPROPERTY);
 			$audience = getNavBlocks($config, $pagename, $this->getSkin(), AUDIENCEMSGPROPERTY);
-
+			
+			$navblokkies = array("processes"=>$processes, "concepts"=>$concepts, "cases"=>$cases, "facts"=>$facts, "moreblocks"=>$moreblocks, "sections"=>$sections, "audience"=>$audience);
+			
+			//preprocess them TODO more efficient, variable naming?
+			foreach($navblokkies as $k=>$v){
+				foreach($v as $process => $subProcessLinks)
+				{
+					$processBlock = convertPipedLinkToTriple($process, $bannerUrl);
+					if($processBlock[1]=="more"){	//detect the more-link
+						$blockdata[$k]["more"] = $processBlock[0];	//set url for 'more processes'
+					}
+					else{
+						$processBlock["subs"] = $subProcessLinks;
+						$blockdata[$k][] = $processBlock;
+					}
+				}
+			}
+			/**END RESOLVE THIS CODE DUPLICATION (COMPARE TO CASE HOMEPAGE)**/
+			
+			
 			//set sectionHeader, used in header.php
 			$sectionHeader = getConfigPropertyValue($config, $pagename, SECTIONHEADERPROPERTY);
 			if(!$sectionHeader)
@@ -333,5 +373,40 @@ spl_autoload_register(function($classname){
 		return $config['query']['results'][$pagename]['printouts'][$property][0];
 	}
 
+	/**
+	 * Split a string with link-information in 3 strings and return as array: 
+	 * first element being the target, the 2nd being the label of the link, 3rd being a background image
+	 * the backgournd image name is converted to either a wiki-upload-url (if present) or a banner url.
+	 * @author WME
+	 * @param $pipedInput the string containing the link parts separated by |
+	 * @return an array with at most 3 parts of the string
+	 */
+	function convertPipedLinkToTriple($pipedInput, $bannerUrl){
+		$linkParts = explode("|", $pipedInput, 3);
+		$linkParts = array_map("trim", $linkParts);	//trim whitespace
+		//convert image (part 3 of the triple)
+		$linkParts[2] = getImageUrl($linkParts[2], $bannerUrl);		//bannerUrl?? TODO
+		return $linkParts;
+	}
+	
+	/**
+	 * Converts the given filename to a URL. Returns the wiki-image url if the file is available 
+	 * in the wiki uploads, otherwise it is assumed that it is a skin image (thus prefixed with banner url)
+	 * @author WME
+	 * @param $imageFileName the name and just the name of an image file (including extension, no path)
+	 * @param $bannerUrl the global $bannerUrl variable
+	 * @return the corresponding wiki-image url (if exists in wiki uploads), otherwise
+	 * the input name prefixed with the given $bannerUrl (so it is assumed that it is a skin image).
+	 */
+	function getImageUrl($imageFileName, $bannerUrl){
+		//the images can be either a skin image (found at bannerUrl) or a wiki upload (prefered)
+		if($imageFileName){
+			$wikiImageUrl = APIAsker::getInstance()->queryImageUrl($imageFileName);
+			return ($wikiImageUrl) ? $wikiImageUrl : $bannerUrl."/".$imageFileName;
+		}
+		else
+			return "";
+	}
+	
 	include 'debug.php';
 ?>

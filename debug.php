@@ -9,9 +9,17 @@ if(isset($_GET['stop'])) //for debugging, end querystring with '?stop' or '&stop
 	
 	//echo "SECTIONS:";
 // 	var_dump($sections);
-	echo "MOREBLOCKS:";
+	echo "BLOCKDATA: ";
+	var_dump($blockdata);
+	
+	echo "PROCESSES: ";
+	echo PROCESSESMSGPROPERTY."\n";
+	var_dump($processes);
+	
+	echo "MOREBLOCKS: ";
 	echo MOREBLOCKSMSGPROPERTY;
 	var_dump($moreblocks);
+	
 	//testing calling the api
 	//all pages with half-height Waterveiligheidsbanner
 // 	global $wgLocalStylePath, $wgFavicon, $wgAppleTouchIcon;
