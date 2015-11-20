@@ -2364,43 +2364,37 @@ div.slide:after::hover {
 .printfooter {
   display: none; }
 
-footer#siteFooter {
+#siteFooter {
   background: #fff;
   width: 100%;
   max-width: 100%;
   clear: both;
   overflow: hidden; }
-
-ul#partners {
-  margin: 0 auto;
-  padding: 0;
-  max-width: 1020px;
-  background: #fff;
-  display: table;
-  text-align: center; }
-  ul#partners
-li {
-    display: table-cell;
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    ul#partners
-li
-img {
-      height: auto;
-      width: auto;
-      max-width: 100%;
-      transition: all 0.3s ease-out; }
-
-@media screen and (min-width: 720px) {
-  ul#partners li img {
-    height: auto;
-    width: auto; } }
-
-@media screen and (min-width: 980px) {
-  ul#partners li img {
-    height: auto;
-    width: auto; } }
+  #siteFooter > ul {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1020px;
+    background: #fff;
+    display: table;
+    text-align: center; }
+    #siteFooter > ul li {
+      display: table-cell;
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      #siteFooter > ul li img {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        transition: all 0.3s ease-out; }
+        @media screen and (min-width: 720px) {
+          #siteFooter > ul li img {
+            height: auto;
+            width: auto; } }
+        @media screen and (min-width: 980px) {
+          #siteFooter > ul li img {
+            height: auto;
+            width: auto; } }
 
 a#toggleSearch {
   position: absolute;
@@ -2676,12 +2670,15 @@ tr:nth-child(even) {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover; }
-  .banner
-img {
+  #canvas.index .banner {
+    height: 170px;
+    background-size: auto 170px;
+    top: 0;
+    background-image: url("../img/banners/banner-big-boulevard.jpg"); }
+  .banner img {
     border-left: 8px solid #36a8db;
     border-right: 8px solid #36a8db; }
-  .banner
-span {
+  .banner span {
     background: url(../img/photoGrid.png) repeat center center;
     display: block;
     left: 0;
@@ -2689,6 +2686,10 @@ span {
     right: 0;
     bottom: 0;
     height: 100%; }
+  @media screen and (min-width: 720px) {
+    .banner {
+      height: 212px;
+      background-size: auto; } }
 
 #mainHeader {
   height: 146px;
@@ -2724,15 +2725,10 @@ span {
         width: 150px;
         background-size: 121px 117px;
         background-origin: 50% 50%; }
-  #mainHeader h1#sectionHeader {
-    position: absolute;
-    bottom: 12px;
-    display: block;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 2.1em;
-    font-weight: 400;
-    text-align: center;
-    width: auto; }
+  @media screen and (min-width: 720px) {
+    #mainHeader {
+      height: 212px;
+      background-size: auto; } }
 
 .page-Home header#mainHeader h1#idTag span:hover {
   width: 146px;
@@ -2741,22 +2737,13 @@ span {
   background-size: 117px 113px;
   background-origin: center center; }
 
-#canvas.index
-div.banner {
-  height: 170px;
-  background-size: auto 170px;
-  top: 0;
-  background-image: url("../img/banners/banner-big-boulevard.jpg"); }
-
-#canvas.index
-header#mainHeader {
+#canvas.index #mainHeader {
   height: 154px; }
 
 #canvas.index.landingspagina header#mainHeader {
   height: auto;
   margin-bottom: 24px; }
-  #canvas.index.landingspagina header#mainHeader
-h1#idTag {
+  #canvas.index.landingspagina header#mainHeader h1#idTag {
     margin-bottom: 28px; }
 
 #canvas.index.landingspagina h2#profile {
@@ -2775,24 +2762,19 @@ h1#idTag {
     content: ""; }
   #canvas.index.landingspagina h2#profile:after {
     clear: both; }
-  #canvas.index.landingspagina h2#profile
-p {
+  #canvas.index.landingspagina h2#profile p {
     margin: 0;
     padding: 0;
     line-height: 22px;
     color: #0071BC;
     text-align: left; }
-  #canvas.index.landingspagina h2#profile
-img {
+  #canvas.index.landingspagina h2#profile img {
     position: relative;
     width: 180px;
     margin: 0 auto;
     margin-bottom: 18px; }
 
 @media screen and (min-width: 720px) {
-  .banner {
-    height: 294px;
-    background-size: auto; }
   #mainHeader {
     position: relative; }
     #mainHeader #idTag {
@@ -2804,27 +2786,18 @@ img {
       -webkit-transform: scale(0.9);
       -ms-transform: scale(0.9);
       transform: scale(0.9); }
-    #mainHeader h1#sectionHeader {
-      position: absolute;
-      bottom: 20px;
-      font-size: 2.4em;
-      font-weight: 300;
-      text-align: left; }
   #canvas.index.landingspagina #mainHeader {
     height: auto;
     margin-bottom: 24px;
     padding-top: 146px; }
-  #canvas.index.landingspagina
-h2#profile {
+  #canvas.index.landingspagina h2#profile {
     background: #fff;
     position: relative;
     padding: 12px 32px 12px 32px;
     font-size: 13px;
     font-weight: normal;
     color: #00598E; }
-    #canvas.index.landingspagina
-h2#profile
-p {
+    #canvas.index.landingspagina h2#profile p {
       margin: 0;
       padding: 0;
       line-height: 22px;
@@ -2833,39 +2806,47 @@ p {
       float: left;
       width: 70%;
       padding: 18px 0 0 0; }
-    #canvas.index.landingspagina
-h2#profile
-img {
+    #canvas.index.landingspagina h2#profile img {
       position: relative;
       width: 23%;
       float: left;
       margin-right: 5%;
       margin-bottom: 0; }
-    #canvas.index.landingspagina
-h2#profile
-img.deltares {
+    #canvas.index.landingspagina h2#profile img.deltares {
       width: 17%; } }
 
 @media screen and (min-width: 980px) {
-  header#mainHeader {
+  #mainHeader {
     position: relative; }
-    header#mainHeader #idTag {
+    #mainHeader #idTag {
       left: 32px;
       top: -46px;
       -webkit-transform: scale(1);
       -ms-transform: scale(1);
       transform: scale(1); }
-    header#mainHeader #sectionHeader {
-      position: absolute;
-      bottom: 0px;
-      font-size: 3.4em;
-      font-weight: 300;
-      text-align: left; }
-  #canvas.index div.banner {
+  #canvas.index .banner {
     height: 340px;
     background-size: auto; }
-  #canvas.index header#mainHeader {
+  #canvas.index #mainHeader {
     height: 308px; } }
+
+/* sectionHeader */
+#sectionHeader {
+  position: absolute;
+  bottom: 12px;
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2.1em;
+  font-weight: 400;
+  text-align: center;
+  width: auto; }
+  @media screen and (min-width: 720px) {
+    #sectionHeader {
+      position: absolute;
+      bottom: 20px;
+      font-size: 2.4em;
+      font-weight: 300;
+      text-align: left; } }
 
 #breadcrumb {
   clear: both;
@@ -3931,6 +3912,18 @@ h3 {
 
 .suggestions {
   z-index: 10000; }
+
+.section-processen-cases,
+.section-begrippen-feiten {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
 
 .tourpane {
   display: none;

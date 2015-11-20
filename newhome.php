@@ -6,7 +6,7 @@
 
 					<!-- row processen/cases -->
 		
-					<div class="layout  mobile-mb  tablet-mb0">
+					<div class="layout  mobile-mb  tablet-mb0  section-processen-cases">
 		
 						<div class="layout__item  u-1/2-tablet  u-2/3-desktop  section-processen">
 		
@@ -84,7 +84,7 @@
 		
 					<!-- row begrippen/feiten -->
 		
-					<div class="layout  layout--devider  mobile-pt  tablet-pt0">
+					<div class="layout  layout--devider  mobile-pt  tablet-pt0  section-begrippen-feiten">
 		
 						<div class="layout__item  u-1/2-tablet  u-2/3-desktop  section-begrippen">
 <?php 	if($blockdata["concepts"]):?>		
