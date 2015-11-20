@@ -375,8 +375,9 @@ spl_autoload_register(function($classname){
 
 	/**
 	 * Split a string with link-information in 3 strings and return as array: 
-	 * first element being the target, the 2nd being the label of the link, 3rd being a background image
-	 * the backgournd image name is converted to either a wiki-upload-url (if present) or a banner url.
+	 * first element being the target (which will be rawurlencoded, the 2nd being the label of the link, 
+	 * 3rd being a background image the backgournd image name is converted to either a wiki-upload-url 
+	 * (if present) or a banner url.
 	 * @author WME
 	 * @param $pipedInput the string containing the link parts separated by |
 	 * @return an array with at most 3 parts of the string
@@ -384,6 +385,7 @@ spl_autoload_register(function($classname){
 	function convertPipedLinkToTriple($pipedInput, $bannerUrl){
 		$linkParts = explode("|", $pipedInput, 3);
 		$linkParts = array_map("trim", $linkParts);	//trim whitespace
+		$linkParts[0] = rawurlencode($linkParts[0]);
 		//convert image (part 3 of the triple)
 		$linkParts[2] = getImageUrl($linkParts[2], $bannerUrl);		//bannerUrl?? TODO
 		return $linkParts;

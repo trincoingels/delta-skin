@@ -231,7 +231,7 @@
 										else{
 											echo $audienceItem["subs"] . "\n";
 										}
-										echo "<li class=\"more\"><a href=\"$audienceItem[0]\">" . wfMessage( 'deltaskin-more' )->text() ." ". strtolower( ($audienceItem[1] ?: $audienceItem[0]) ) . "</a></li>\n";
+										echo "<li class=\"more\"><a href=\"{$audienceItem[0]}\">" . wfMessage( 'deltaskin-more' )->text() ." ". strtolower( ($audienceItem[1] ?: $audienceItem[0]) ) . "</a></li>\n";
 										echo "</ul>\n";
 									?>
 									</div>
