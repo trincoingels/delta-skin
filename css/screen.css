@@ -2257,6 +2257,9 @@ a {
         border: 1px solid green;
         line-height: 18px; } }
 
+.thumb {
+  margin-bottom: 21px; }
+
 div.zoom {
   margin-bottom: 21px;
   overflow: hidden;
@@ -2292,7 +2295,8 @@ div.slide div.thumbinner a {
   display: block; }
 
 div.thumb div.thumbinner div.thumbcaption {
-  background: #fff; }
+  background: #fff;
+  padding: 0 21px 21px 21px; }
 
 div.move:after {
   content: "z";
@@ -3689,6 +3693,8 @@ h3 {
     color: #868789; }
     .navigation .section-titel a:hover {
       color: #646567; }
+  .navigation .layout__item {
+    position: relative; }
 
 .navigation__item--title, .case-list > li a {
   -webkit-text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -3924,6 +3930,41 @@ h3 {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto; }
+
+/*
+* Cases and Feiten needs to be 100% height following the height of the left kolom in case.
+*/
+@media screen and (min-width: 720px) {
+  .section-processen-cases .box--absolute {
+    position: absolute;
+    bottom: 42px;
+    top: 84px;
+    right: 18px;
+    left: 36px;
+    padding: 0; }
+  .section-processen-cases .scroller {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    bottom: 0; }
+    .section-processen-cases .scroller .scroller__inner {
+      height: 100%; }
+  .section-begrippen-feiten .box--absolute {
+    position: absolute;
+    bottom: 42px;
+    top: 21px;
+    right: 18px;
+    left: 36px;
+    padding: 0; }
+  .section-begrippen-feiten .scroller {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    bottom: 0; }
+    .section-begrippen-feiten .scroller .scroller__inner {
+      height: 100%; } }
 
 .tourpane {
   display: none;

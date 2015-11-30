@@ -54,7 +54,7 @@
 		
 							<div class="navigation__label  hide-on-mobile"><span class="p"><?php echo wfMessage( 'deltaskin-practice' )->text();?></span></div>
 <?php 	if($blockdata["cases"]):?>	
-							<div class="box">
+							<div class="box  box--absolute">
 		
 								<h2 class="section-titel"><a href="<?php echo $blockdata["cases"]["more"];?>"><?php echo wfMessage( 'deltaskin-cases' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-practice' )->text();?>)</span></a></h2>
 		
@@ -113,7 +113,7 @@
 <?php 	endif;?>
 						</div><div class="layout__item  u-1/2-tablet  u-1/3-desktop">
 <?php 	if($blockdata["facts"]):?>		
-							<div class="box">
+							<div class="box  box--absolute">
 		
 								<h2 class="section-titel"><a href="<?php echo $blockdata["facts"]["more"];?>"><?php echo wfMessage( 'deltaskin-facts' )->text();?><span class="mobile-only"> (<?php echo wfMessage( 'deltaskin-practice' )->text();?>)</span></a></h2>
 		
