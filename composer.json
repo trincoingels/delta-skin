@@ -1,5 +1,5 @@
 {
-    "name": "trincoingels/delta-skin",
+    "name": "delta-skin",
     "autoload": {
         "psr-0" : {
             "Delta-skin" : "src"
