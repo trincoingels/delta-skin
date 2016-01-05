@@ -2,7 +2,12 @@
     "name": "trincoingels/delta-skin",
     "autoload": {
         "psr-0" : {
-            "..\\Skins\\Delta-skin" : "src"
+            "Delta-skin" : "src"
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "/vcc/skins": ["vendor/package"]
         }
     }
 }
