@@ -1,5 +1,5 @@
 {
-    "name": "delta-skin",
+    "name": "deltaa-skin",
     "type"       : "mediawiki-skin",
     "require": {
         "composer/installers": "~1.0"
