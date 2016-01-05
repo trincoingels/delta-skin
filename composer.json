@@ -2,7 +2,7 @@
     "name": "trincoingels/delta-skin",
     "autoload": {
         "psr-0" : {
-            "TrincoIngels\\Delta-skin" : "src"
+            "..\\Skins\\Delta-skin" : "src"
         }
     }
 }
