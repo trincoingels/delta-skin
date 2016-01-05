@@ -1,5 +1,8 @@
 {
     "name": "delta-skin",
+    "require": {
+        "composer/installers": "~1.0"
+    },
     "autoload": {
         "psr-0" : {
             "Delta-skin" : "src"
