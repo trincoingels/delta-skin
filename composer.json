@@ -10,6 +10,6 @@
         }
     },
     "post-install-cmd": [
-      "/install/post-install.sh"
+      "bash /install/post-install.sh"
     ]
 }
