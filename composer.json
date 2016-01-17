@@ -10,7 +10,7 @@
         }
     },
     "scripts": {
-        "post-install-cmd": "bash install/post-install.sh",
-        "post-update-cmd": "bash install/post-install.sh"
+        "post-install-cmd": "sh post-install.sh",
+        "post-update-cmd": "sh post-install.sh"
     }
 }
