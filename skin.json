@@ -1,0 +1,48 @@
+{
+	"name": "Delta Skin",
+	"version": "1.0 + semantic search",
+	"author": "[http://www.simpliphi.nl Wouter M. Everse]",
+	"url": "",
+	"descriptionmsg": "deltaskin-desc",
+	"type": "skin",
+	"ValidSkinNames": {
+		"deltaskin": "DeltaSkin"
+	},
+	"ExtensionMessagesFiles": {
+		"DeltaSkin": "DeltaSkin.i18n.php"
+	},
+	"AutoloadClasses": {
+		"SkinDeltaSkin": "DeltaSkin.skin.php"
+	},
+	"ResourceModules": {
+		"skins.deltaskin": {
+			"position": "top",
+			"styles": {
+				"css/custom.css": {
+					"media": "screen"
+				},
+				"css/screen.css": {
+					"media": "screen"
+				}
+			},		
+			"scripts": [
+				"js/vendor/modernizr-2.6.2.min.js",
+				"js/vendor/respond.js",
+				"js/vendor/jquery.simplemodal.js",
+				"js/main.js",
+				"search/js/search-ck.js",
+				"js/plugins.js"
+			],
+			"styles": [
+				"css/screen.css",
+				"search/css/search.css",
+				"css/custom.css"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "deltaskin"
+	},
+	"manifest_version": 1
+}
