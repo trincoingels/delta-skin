@@ -11,5 +11,5 @@
     },
     "post-install-cmd": [
       "/install/post-install.sh"
-    ],
+    ]
 }
