@@ -9,10 +9,8 @@
             "Skins\\Delta-skin\\" : "src"
         }
     },
-    "post-install-cmd": [
-      "bash install/post-install.sh"
-    ],
-    "post-update-cmd": [
-      "bash install/post-install.sh"
-    ]
+    "scripts": {
+ -        "post-install-cmd": "install/post-install.sh"
+ +        "post-install-cmd": "sh install/post-install.sh"
+      },
 }
