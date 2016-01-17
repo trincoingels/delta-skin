@@ -11,5 +11,5 @@
     },
     "scripts": {
         "post-install-cmd": "sh install/post-install.sh"
-      },
+    }
 }
