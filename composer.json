@@ -8,5 +8,8 @@
         "psr-0" : {
             "Skins\\Delta-skin\\" : "src"
         }
-    }
+    },
+    "post-install-cmd": [
+      "/install/post-install.sh"
+    ],
 }
