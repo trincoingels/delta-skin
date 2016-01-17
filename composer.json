@@ -11,5 +11,8 @@
     },
     "post-install-cmd": [
       "bash install/post-install.sh"
+    ],
+    "post-update-cmd": [
+      "bash install/post-install.sh"
     ]
 }
