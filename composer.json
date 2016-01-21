@@ -1,14 +1,6 @@
 {
     "name": "deltaskin",
     "type"       : "mediawiki-skin",
-    "require": {
-        "composer/installers": "~1.0"
-    },
-    "autoload": {
-        "psr-0" : {
-            "Skins\\Delta-skin\\" : "src"
-        }
-    },
     "scripts": {
         "post-install-cmd": "sh post-install.sh",
         "post-update-cmd": "sh post-install.sh"
